@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+// Prisma 7: the connection URL lives in prisma.config.ts, not here
+datasource db {
+  provider = "mysql"
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum Training {
+  HOME_APPLIANCE
+}
+
+enum RegistrationStatus {
+  PENDING
+  SHORTLISTED
+  SELECTED
+  REJECTED
+}
+
+model Registration {
+  id             Int                @id @default(autoincrement())
+  training       Training           @default(HOME_APPLIANCE)
+  fullName       String             @db.VarChar(120)
+  phone          String             @unique @db.VarChar(15)
+  email          String?            @db.VarChar(191)
+  age            Int
+  gender         Gender
+  province       String             @db.VarChar(40)
+  district       String             @db.VarChar(40)
+  municipality   String             @db.VarChar(100)
+  address        String?             @db.VarChar(255) 
+  education      String             @db.VarChar(80)
+  hasExperience  Boolean            @default(false)
+  experienceNote String?            @db.Text
+  status         RegistrationStatus @default(PENDING)
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+
+  @@index([status])
+  @@index([training])
+  @@index([district])
+  @@index([createdAt])
+}
