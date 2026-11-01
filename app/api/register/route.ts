@@ -24,7 +24,6 @@ export async function POST(req: Request) {
 
   const d = parsed.data;
 
-  // Honeypot filled in: pretend success, save nothing
   if (d.website) return NextResponse.json({ id: 0 }, { status: 201 });
 
   try {

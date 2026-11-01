@@ -10,9 +10,12 @@ const body = Mukta({
 });
 
 export const metadata: Metadata = {
-  title: "Free Technician Training Registration | Xittoo Sewa",
+  title: "Free Technician Training | Xittoo Sewa",
   description:
     "Register for the free 2-month home appliance repair and maintenance training in Banepa.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

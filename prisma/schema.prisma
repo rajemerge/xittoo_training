@@ -3,7 +3,6 @@ generator client {
   output   = "../generated/prisma"
 }
 
-// Prisma 7: the connection URL lives in prisma.config.ts, not here
 datasource db {
   provider = "mysql"
 }

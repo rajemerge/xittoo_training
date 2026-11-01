@@ -5,7 +5,6 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[#f3f8ff] px-3 py-5 sm:px-6 sm:py-8">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(380px,0.9fr)] lg:gap-8">
-        {/* Training Banner */}
         <section className="overflow-hidden rounded-2xl bg-white shadow-lg shadow-blue-900/5">
           <Image
             src="/xittootraining.png"
@@ -18,7 +17,6 @@ export default function Page() {
           />
         </section>
 
-        {/* Registration Form */}
         <section
           className="min-w-0 lg:sticky lg:top-6"
           aria-labelledby="form-title"
