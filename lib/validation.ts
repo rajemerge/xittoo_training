@@ -75,6 +75,7 @@ export const registrationSchema = z.object({
   }),
 
   website: z.string().max(0).optional(),
+  captchaToken: z.string().min(1, "Please complete CAPTCHA"),
 });
 
 export type RegistrationInput = z.infer<typeof registrationSchema>;

@@ -72,6 +72,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const RegistrationScalarFieldEnum = {
   id: 'id',
+  registrationNo: 'registrationNo',
   training: 'training',
   fullName: 'fullName',
   phone: 'phone',
@@ -110,6 +111,7 @@ export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 export const RegistrationOrderByRelevanceFieldEnum = {
+  registrationNo: 'registrationNo',
   fullName: 'fullName',
   phone: 'phone',
   email: 'email',

@@ -11,6 +11,7 @@ import {
   registrationSchema,
   toFieldErrors,
 } from "@/lib/validation";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 type Errors = Record<string, string>;
 
@@ -44,10 +45,15 @@ const localLevels = municipalitiesData as LocalLevel[];
 const TRAINING_OPTIONS = [{ value: "HOME_APPLIANCE", label: "Home Appliance" }];
 
 export default function RegistrationForm() {
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+  if (!siteKey) {
+    throw new Error("Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY");
+  }
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [doneId, setDoneId] = useState<number | null>(null);
+  const [doneId, setDoneId] = useState<string | null>(null);
 
   const [hasExperience, setHasExperience] = useState(false);
 
@@ -55,6 +61,8 @@ export default function RegistrationForm() {
   const [selectedDistrict, setSelectedDistrict] = useState("");
 
   const [selectedMunicipality, setSelectedMunicipality] = useState("");
+
+  const [token, setToken] = useState("");
 
   const districts = useMemo(
     () =>
@@ -97,8 +105,10 @@ export default function RegistrationForm() {
     e.preventDefault();
     setFormError("");
 
-    console.log("summing");
-
+    if (!token) {
+      setFormError("Please complete the CAPTCHA before registering.");
+      return;
+    }
     const fd = new FormData(e.currentTarget);
 
     const payload = {
@@ -108,10 +118,17 @@ export default function RegistrationForm() {
       age: fd.get("age"),
       gender: fd.get("gender") ?? undefined,
 
-      province: fd.get("province"),
-      district: fd.get("district"),
+      province:
+        provinces.find((item) => item.code === String(fd.get("province") ?? ""))
+          ?.name_en ?? "",
+      district:
+        districtsDataList.find(
+          (item) =>
+            item.code === String(fd.get("district") ?? "") &&
+            item.province_code === String(fd.get("province") ?? ""),
+        )?.name_en ?? "",
       municipality: fd.get("municipality"),
-      streetAddress: fd.get("streetAddress"),
+      address: fd.get("streetAddress"),
 
       education: fd.get("education"),
       training: fd.get("training"),
@@ -123,13 +140,12 @@ export default function RegistrationForm() {
 
       consent: fd.get("consent") === "on",
       website: fd.get("website") ?? "",
+      captchaToken: token,
     };
 
     const check = registrationSchema.safeParse(payload);
-    console.log("cheking");
 
     if (!check.success) {
-      console.log("dasld");
       const fieldErrors = toFieldErrors(check.error);
       setErrors(fieldErrors);
       console.log(errors);
@@ -165,7 +181,9 @@ export default function RegistrationForm() {
         return;
       }
 
-      setDoneId(data.id);
+      console.log(data);
+
+      setDoneId(data.registrationNo);
     } catch {
       setFormError(
         "Could not reach the server. Check your internet connection and try again.",
@@ -196,7 +214,7 @@ export default function RegistrationForm() {
           Banepa training program.
         </p>
 
-        {doneId > 0 && (
+        {doneId && (
           <div className="mt-6 rounded-xl bg-[#eaf4ff] p-4">
             <p className="text-xs font-semibold text-[#52647f]">
               Your registration number
@@ -292,7 +310,7 @@ export default function RegistrationForm() {
           <div className="sm:col-span-2">
             <label htmlFor="email" className={labelClass}>
               Email{" "}
-              <span className="font-normal text-slate-400">(Optional)</span>
+              {/* <span className="font-normal text-slate-400">(Optional)</span> */}
             </label>
 
             <input
@@ -554,6 +572,29 @@ export default function RegistrationForm() {
             {formError}
           </p>
         )}
+
+        <Turnstile
+          className="w-full"
+          siteKey={siteKey}
+          options={{
+            size: "flexible",
+            theme: "auto",
+          }}
+          onSuccess={(token) => {
+            setToken(token);
+            setFormError("");
+          }}
+          onError={() => {
+            setToken("");
+            setFormError(
+              "CAPTCHA failed to load. Please refresh and try again.",
+            );
+          }}
+          onExpire={() => {
+            setToken("");
+            setFormError("CAPTCHA expired. Please verify again.");
+          }}
+        />
 
         <div className="border-t border-[#e5edf7] pt-5">
           <button

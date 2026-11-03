@@ -38,6 +38,7 @@ export type RegistrationSumAggregateOutputType = {
 
 export type RegistrationMinAggregateOutputType = {
   id: number | null
+  registrationNo: string | null
   training: $Enums.Training | null
   fullName: string | null
   phone: string | null
@@ -58,6 +59,7 @@ export type RegistrationMinAggregateOutputType = {
 
 export type RegistrationMaxAggregateOutputType = {
   id: number | null
+  registrationNo: string | null
   training: $Enums.Training | null
   fullName: string | null
   phone: string | null
@@ -78,6 +80,7 @@ export type RegistrationMaxAggregateOutputType = {
 
 export type RegistrationCountAggregateOutputType = {
   id: number
+  registrationNo: number
   training: number
   fullName: number
   phone: number
@@ -110,6 +113,7 @@ export type RegistrationSumAggregateInputType = {
 
 export type RegistrationMinAggregateInputType = {
   id?: true
+  registrationNo?: true
   training?: true
   fullName?: true
   phone?: true
@@ -130,6 +134,7 @@ export type RegistrationMinAggregateInputType = {
 
 export type RegistrationMaxAggregateInputType = {
   id?: true
+  registrationNo?: true
   training?: true
   fullName?: true
   phone?: true
@@ -150,6 +155,7 @@ export type RegistrationMaxAggregateInputType = {
 
 export type RegistrationCountAggregateInputType = {
   id?: true
+  registrationNo?: true
   training?: true
   fullName?: true
   phone?: true
@@ -257,6 +263,7 @@ export type RegistrationGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type RegistrationGroupByOutputType = {
   id: number
+  registrationNo: string
   training: $Enums.Training
   fullName: string
   phone: string
@@ -300,6 +307,7 @@ export type RegistrationWhereInput = {
   OR?: Prisma.RegistrationWhereInput[]
   NOT?: Prisma.RegistrationWhereInput | Prisma.RegistrationWhereInput[]
   id?: Prisma.IntFilter<"Registration"> | number
+  registrationNo?: Prisma.StringFilter<"Registration"> | string
   training?: Prisma.EnumTrainingFilter<"Registration"> | $Enums.Training
   fullName?: Prisma.StringFilter<"Registration"> | string
   phone?: Prisma.StringFilter<"Registration"> | string
@@ -320,6 +328,7 @@ export type RegistrationWhereInput = {
 
 export type RegistrationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  registrationNo?: Prisma.SortOrder
   training?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -341,6 +350,7 @@ export type RegistrationOrderByWithRelationInput = {
 
 export type RegistrationWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  registrationNo?: string
   phone?: string
   AND?: Prisma.RegistrationWhereInput | Prisma.RegistrationWhereInput[]
   OR?: Prisma.RegistrationWhereInput[]
@@ -360,10 +370,11 @@ export type RegistrationWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumRegistrationStatusFilter<"Registration"> | $Enums.RegistrationStatus
   createdAt?: Prisma.DateTimeFilter<"Registration"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Registration"> | Date | string
-}, "id" | "phone">
+}, "id" | "registrationNo" | "phone">
 
 export type RegistrationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  registrationNo?: Prisma.SortOrder
   training?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -392,6 +403,7 @@ export type RegistrationScalarWhereWithAggregatesInput = {
   OR?: Prisma.RegistrationScalarWhereWithAggregatesInput[]
   NOT?: Prisma.RegistrationScalarWhereWithAggregatesInput | Prisma.RegistrationScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Registration"> | number
+  registrationNo?: Prisma.StringWithAggregatesFilter<"Registration"> | string
   training?: Prisma.EnumTrainingWithAggregatesFilter<"Registration"> | $Enums.Training
   fullName?: Prisma.StringWithAggregatesFilter<"Registration"> | string
   phone?: Prisma.StringWithAggregatesFilter<"Registration"> | string
@@ -411,6 +423,7 @@ export type RegistrationScalarWhereWithAggregatesInput = {
 }
 
 export type RegistrationCreateInput = {
+  registrationNo: string
   training?: $Enums.Training
   fullName: string
   phone: string
@@ -431,6 +444,7 @@ export type RegistrationCreateInput = {
 
 export type RegistrationUncheckedCreateInput = {
   id?: number
+  registrationNo: string
   training?: $Enums.Training
   fullName: string
   phone: string
@@ -450,6 +464,7 @@ export type RegistrationUncheckedCreateInput = {
 }
 
 export type RegistrationUpdateInput = {
+  registrationNo?: Prisma.StringFieldUpdateOperationsInput | string
   training?: Prisma.EnumTrainingFieldUpdateOperationsInput | $Enums.Training
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -470,6 +485,7 @@ export type RegistrationUpdateInput = {
 
 export type RegistrationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationNo?: Prisma.StringFieldUpdateOperationsInput | string
   training?: Prisma.EnumTrainingFieldUpdateOperationsInput | $Enums.Training
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -490,6 +506,7 @@ export type RegistrationUncheckedUpdateInput = {
 
 export type RegistrationCreateManyInput = {
   id?: number
+  registrationNo: string
   training?: $Enums.Training
   fullName: string
   phone: string
@@ -509,6 +526,7 @@ export type RegistrationCreateManyInput = {
 }
 
 export type RegistrationUpdateManyMutationInput = {
+  registrationNo?: Prisma.StringFieldUpdateOperationsInput | string
   training?: Prisma.EnumTrainingFieldUpdateOperationsInput | $Enums.Training
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -529,6 +547,7 @@ export type RegistrationUpdateManyMutationInput = {
 
 export type RegistrationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  registrationNo?: Prisma.StringFieldUpdateOperationsInput | string
   training?: Prisma.EnumTrainingFieldUpdateOperationsInput | $Enums.Training
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -555,6 +574,7 @@ export type RegistrationOrderByRelevanceInput = {
 
 export type RegistrationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  registrationNo?: Prisma.SortOrder
   training?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -580,6 +600,7 @@ export type RegistrationAvgOrderByAggregateInput = {
 
 export type RegistrationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  registrationNo?: Prisma.SortOrder
   training?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -600,6 +621,7 @@ export type RegistrationMaxOrderByAggregateInput = {
 
 export type RegistrationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  registrationNo?: Prisma.SortOrder
   training?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
   phone?: Prisma.SortOrder
@@ -623,12 +645,12 @@ export type RegistrationSumOrderByAggregateInput = {
   age?: Prisma.SortOrder
 }
 
-export type EnumTrainingFieldUpdateOperationsInput = {
-  set?: $Enums.Training
-}
-
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type EnumTrainingFieldUpdateOperationsInput = {
+  set?: $Enums.Training
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
@@ -663,6 +685,7 @@ export type DateTimeFieldUpdateOperationsInput = {
 
 export type RegistrationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  registrationNo?: boolean
   training?: boolean
   fullName?: boolean
   phone?: boolean
@@ -685,6 +708,7 @@ export type RegistrationSelect<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type RegistrationSelectScalar = {
   id?: boolean
+  registrationNo?: boolean
   training?: boolean
   fullName?: boolean
   phone?: boolean
@@ -703,13 +727,14 @@ export type RegistrationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type RegistrationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "training" | "fullName" | "phone" | "email" | "age" | "gender" | "province" | "district" | "municipality" | "address" | "education" | "hasExperience" | "experienceNote" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["registration"]>
+export type RegistrationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "registrationNo" | "training" | "fullName" | "phone" | "email" | "age" | "gender" | "province" | "district" | "municipality" | "address" | "education" | "hasExperience" | "experienceNote" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["registration"]>
 
 export type $RegistrationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Registration"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
+    registrationNo: string
     training: $Enums.Training
     fullName: string
     phone: string
@@ -1096,6 +1121,7 @@ export interface Prisma__RegistrationClient<T, Null = never, ExtArgs extends run
  */
 export interface RegistrationFieldRefs {
   readonly id: Prisma.FieldRef<"Registration", 'Int'>
+  readonly registrationNo: Prisma.FieldRef<"Registration", 'String'>
   readonly training: Prisma.FieldRef<"Registration", 'Training'>
   readonly fullName: Prisma.FieldRef<"Registration", 'String'>
   readonly phone: Prisma.FieldRef<"Registration", 'String'>

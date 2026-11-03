@@ -524,6 +524,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const RegistrationScalarFieldEnum = {
   id: 'id',
+  registrationNo: 'registrationNo',
   training: 'training',
   fullName: 'fullName',
   phone: 'phone',
@@ -562,6 +563,7 @@ export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 export const RegistrationOrderByRelevanceFieldEnum = {
+  registrationNo: 'registrationNo',
   fullName: 'fullName',
   phone: 'phone',
   email: 'email',
@@ -590,16 +592,16 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
 
 
 /**
- * Reference to a field of type 'Training'
+ * Reference to a field of type 'String'
  */
-export type EnumTrainingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Training'>
+export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
     
 
 
 /**
- * Reference to a field of type 'String'
+ * Reference to a field of type 'Training'
  */
-export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+export type EnumTrainingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Training'>
     
 
 

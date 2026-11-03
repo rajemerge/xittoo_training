@@ -25,13 +25,6 @@ export type IntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
-export type EnumTrainingFilter<$PrismaModel = never> = {
-  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
-  in?: $Enums.Training[]
-  notIn?: $Enums.Training[]
-  not?: Prisma.NestedEnumTrainingFilter<$PrismaModel> | $Enums.Training
-}
-
 export type StringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[]
@@ -45,6 +38,13 @@ export type StringFilter<$PrismaModel = never> = {
   endsWith?: string | Prisma.StringFieldRefInput<$PrismaModel>
   search?: string
   not?: Prisma.NestedStringFilter<$PrismaModel> | string
+}
+
+export type EnumTrainingFilter<$PrismaModel = never> = {
+  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
+  in?: $Enums.Training[]
+  notIn?: $Enums.Training[]
+  not?: Prisma.NestedEnumTrainingFilter<$PrismaModel> | $Enums.Training
 }
 
 export type StringNullableFilter<$PrismaModel = never> = {
@@ -113,16 +113,6 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
-export type EnumTrainingWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
-  in?: $Enums.Training[]
-  notIn?: $Enums.Training[]
-  not?: Prisma.NestedEnumTrainingWithAggregatesFilter<$PrismaModel> | $Enums.Training
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
-}
-
 export type StringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[]
@@ -139,6 +129,16 @@ export type StringWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedStringFilter<$PrismaModel>
   _max?: Prisma.NestedStringFilter<$PrismaModel>
+}
+
+export type EnumTrainingWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
+  in?: $Enums.Training[]
+  notIn?: $Enums.Training[]
+  not?: Prisma.NestedEnumTrainingWithAggregatesFilter<$PrismaModel> | $Enums.Training
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
 }
 
 export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -212,13 +212,6 @@ export type NestedIntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
-export type NestedEnumTrainingFilter<$PrismaModel = never> = {
-  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
-  in?: $Enums.Training[]
-  notIn?: $Enums.Training[]
-  not?: Prisma.NestedEnumTrainingFilter<$PrismaModel> | $Enums.Training
-}
-
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[]
@@ -232,6 +225,13 @@ export type NestedStringFilter<$PrismaModel = never> = {
   endsWith?: string | Prisma.StringFieldRefInput<$PrismaModel>
   search?: string
   not?: Prisma.NestedStringFilter<$PrismaModel> | string
+}
+
+export type NestedEnumTrainingFilter<$PrismaModel = never> = {
+  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
+  in?: $Enums.Training[]
+  notIn?: $Enums.Training[]
+  not?: Prisma.NestedEnumTrainingFilter<$PrismaModel> | $Enums.Training
 }
 
 export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -306,16 +306,6 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
 }
 
-export type NestedEnumTrainingWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
-  in?: $Enums.Training[]
-  notIn?: $Enums.Training[]
-  not?: Prisma.NestedEnumTrainingWithAggregatesFilter<$PrismaModel> | $Enums.Training
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
-}
-
 export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[]
@@ -332,6 +322,16 @@ export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedStringFilter<$PrismaModel>
   _max?: Prisma.NestedStringFilter<$PrismaModel>
+}
+
+export type NestedEnumTrainingWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Training | Prisma.EnumTrainingFieldRefInput<$PrismaModel>
+  in?: $Enums.Training[]
+  notIn?: $Enums.Training[]
+  not?: Prisma.NestedEnumTrainingWithAggregatesFilter<$PrismaModel> | $Enums.Training
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTrainingFilter<$PrismaModel>
 }
 
 export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {

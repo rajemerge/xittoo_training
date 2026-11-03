@@ -26,6 +26,7 @@ enum RegistrationStatus {
 
 model Registration {
   id             Int                @id @default(autoincrement())
+  registrationNo String             @unique @db.VarChar(20)
   training       Training           @default(HOME_APPLIANCE)
   fullName       String             @db.VarChar(120)
   phone          String             @unique @db.VarChar(15)
