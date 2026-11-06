@@ -127,10 +127,10 @@ export default function RegistrationForm() {
             item.code === String(fd.get("district") ?? "") &&
             item.province_code === String(fd.get("province") ?? ""),
         )?.name_en ?? "",
-      municipality: fd.get("municipality"),
+      municipality: fd.get("municipality") ?? "",
       address: fd.get("streetAddress"),
-
       education: fd.get("education"),
+      referralSource: fd.get("referralSource") ?? "",
       training: fd.get("training"),
 
       hasExperience,
@@ -507,6 +507,24 @@ export default function RegistrationForm() {
           </select>
 
           {err("education")}
+        </div>
+
+        <div>
+          <label htmlFor="referralSource" className={labelClass}>
+            How did you hear about this training program?
+          </label>
+
+          <input
+            id="referralSource"
+            name="referralSource"
+            type="text"
+            maxLength={150}
+            placeholder="e.g. Facebook, local cooperative, friends, community..."
+            className={inputClass("referralSource")}
+            {...a11y("referralSource")}
+          />
+
+          {err("referralSource")}
         </div>
 
         <div className="">

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Register for the free 2-month home appliance repair and maintenance training in Banepa.",
   icons: {
-    icon: "/logo.png",
+    icon: "logo.png",
   },
 };
 

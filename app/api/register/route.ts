@@ -6,7 +6,7 @@ import { registrationSchema, toFieldErrors } from "@/lib/validation";
 function generateRegistrationNo(id: number) {
   const year = new Date().getFullYear();
 
-  return `XT-${year}-${String(id).padStart(3, "0")}`;
+  return `XT-HA-${year}-${String(id).padStart(3, "0")}`;
 }
 
 async function verifyCaptcha(token: string) {

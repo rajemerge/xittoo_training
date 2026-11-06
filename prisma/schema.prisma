@@ -38,6 +38,7 @@ model Registration {
   municipality   String             @db.VarChar(100)
   address        String?             @db.VarChar(255) 
   education      String             @db.VarChar(80)
+  referralSource String? @db.VarChar(150)
   hasExperience  Boolean            @default(false)
   experienceNote String?            @db.Text
   status         RegistrationStatus @default(PENDING)

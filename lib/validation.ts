@@ -15,7 +15,6 @@ const trainingValues = TRAININGS.map((t) => t.value) as [
   ...TrainingValue[],
 ];
 
-// Shared by the browser form and the API route
 export const registrationSchema = z.object({
   training: z.enum(trainingValues, { message: "Select a training" }),
 
@@ -61,6 +60,8 @@ export const registrationSchema = z.object({
   education: z.enum(EDUCATION_LEVELS, {
     message: "Select your education level",
   }),
+
+  referralSource: z.string().trim().max(150).optional(),
 
   hasExperience: z.boolean(),
 
